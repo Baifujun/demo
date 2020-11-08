@@ -1,0 +1,55 @@
+cxf:
+  path: /demo/services
+  servlet:
+    load-on-startup: 0
+server:
+  port: 80
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: demo
+  rabbitmq:
+    host: 192.168.0.110
+    port: 5672
+    username: guest
+    password: guest
+    #virtual-host: JCcccHost
+    publisher-returns: true
+    publisher-confirm-type: correlated
+    listener:
+      direct:
+        acknowledge-mode: manual
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC
+    username: baixs
+    password: baifujun
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 4
+        min-idle: 0
+        max-wait: -1
+  data:
+    mongodb:
+      #uri: mongodb://localhost/testdb
+      host: localhost
+      port: 27017
+      database: testdb
+      #username:
+      #password:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 1000MB
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  type-aliases-package: com.baixs.demo.domain

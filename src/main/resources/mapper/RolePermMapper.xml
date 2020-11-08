@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baixs.demo.mapper.RolePermMapper">
+    <select id="listByPermName" parameterType="int" resultType="String">
+        SELECT
+        p.perm_name
+        FROM
+        sb_user AS u
+        LEFT OUTER JOIN
+        sb_user_role AS ur ON u.id = ur.user_id
+        LEFT OUTER JOIN
+        sb_role_perm AS rp ON ur.role_id = rp.role_id
+        LEFT OUTER JOIN
+        sb_perm AS p ON rp.perm_id = p.id
+        WHERE
+        u.id = #{userId}
+    </select>
+</mapper>
