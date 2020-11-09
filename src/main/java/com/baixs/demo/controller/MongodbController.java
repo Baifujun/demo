@@ -1,5 +1,6 @@
 package com.baixs.demo.controller;
 
+import com.baixs.demo.aop.SysLogAnnotation;
 import com.baixs.demo.mongo.dao.DemoDao;
 import com.baixs.demo.mongo.document.DemoEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -81,6 +82,7 @@ public class MongodbController {
     }
 
     @PostMapping("/mongodb/uploadFile")
+    @SysLogAnnotation("mongodb上传文件")
     public String uploadFile(MultipartFile file) throws IOException {
         Document document = new Document("from", "web上传");
         gridFsTemplate.store(file.getInputStream(), file.getOriginalFilename(), file.getContentType(), document);
@@ -88,6 +90,7 @@ public class MongodbController {
     }
 
     @GetMapping(value = "/mongodb/downloadFile/{name}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @SysLogAnnotation("mongodb下载文件")
     public byte[] downloadFile(@PathVariable("name") String name, HttpServletResponse response) throws IOException {
         GridFSFindIterable gridFSFindIterable = gridFsTemplate.find(new Query().addCriteria(Criteria.where("filename").is(name)));
         GridFSFile gridFSFile = gridFSFindIterable.first();
