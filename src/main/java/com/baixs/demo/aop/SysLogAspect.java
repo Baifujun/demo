@@ -42,7 +42,7 @@ public class SysLogAspect {
         String methodName = method.getName();
         sysLog.setMethod(className + "." + methodName + "()");
         Object[] args = joinPoint.getArgs();
-        sysLog.setParams(JsonUtil.Json2String(args));
+        //sysLog.setParams(JsonUtil.Json2String(args));
         System.out.println(JsonUtil.Json2String(sysLog));
     }
 }
