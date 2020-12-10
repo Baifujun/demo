@@ -2,20 +2,20 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- trace < debug < info < warn < error -->
     <property name="LOG_LEVEL" value="info"/>
-    <property name="LOG_FILE_PATH" value="E:/logs"/>
+    <property name="LOG_FILE_PATH" value="logs"/>
     <property name="LOG_MAX_HISTORY" value="30"/>
     <property name="LOG_MAX_FILE_SIZE" value="10MB"/>
     <property name="LOG_TOTAL_SIZE_CAP" value="20GB"/>
     <!-- 时间格式-5个字符左对齐的日志级别-线程-记录日志的类名-记录日志的行号-日志消息-换行 -->
-    <!-- <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{50} %line - %msg%n"/> -->
+    <property name="FILE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %-50.50logger{49} [%4.4line] - %msg%n"/>
     <!-- 上色%颜色(...) -->
-    <property name="LOG_PATTERN"
-              value="%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %green([%thread]) %cyan(%logger{50}) %boldMagenta(%line) - %msg%n"/>
-
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %green([%thread]) %cyan(%-50.50logger{49}) [%boldMagenta(%4.4line)] - %msg%n"/>
     <!-- 控制台滚动日志 -->
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
         <!--<withJansi>true</withJansi>-->
     </appender>
@@ -30,7 +30,7 @@
             <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
@@ -49,7 +49,7 @@
             <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
@@ -68,7 +68,7 @@
             <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
