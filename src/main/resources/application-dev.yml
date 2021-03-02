@@ -12,16 +12,16 @@ spring:
   rabbitmq:
     host: 192.168.0.110
     port: 5672
-    username: guest
-    password: guest
-    #virtual-host: JCcccHost
+    username: root
+    password: baifujun
+    virtual-host: /
     publisher-returns: true
     publisher-confirm-type: correlated
     listener:
       direct:
         acknowledge-mode: manual
   datasource:
-    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: baixs
     password: baifujun
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -49,6 +49,33 @@ spring:
     multipart:
       max-file-size: 500MB
       max-request-size: 1000MB
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    wait-for-jobs-to-complete-on-shutdown: true
+    properties:
+      org:
+        quartz:
+          datasource:
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+            username: baixs
+            password: baifujun
+          scheduler:
+            instancName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate #StdJDBCDelegate说明支持集群
+            tablePrefix: qrtz_
+            isClustered: true
+            clusterCheckinInterval: 1000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 5
+            threadPriority: 2
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*Mapper.xml

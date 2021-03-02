@@ -1,0 +1,12 @@
+2021-02-26 09:53:35.187 INFO  [main] com.baixs.demo.DemoApplication                     [  55] - Starting DemoApplication on matebook with PID 8748 (E:\ideaProject\demo\target\classes started by baifj in E:\ideaProject\demo)
+2021-02-26 09:53:35.192 INFO  [main] com.baixs.demo.DemoApplication                     [ 655] - The following profiles are active: dev
+2021-02-26 10:02:28.559 INFO  [main] com.baixs.demo.DemoApplication                     [  55] - Starting DemoApplication on matebook with PID 11048 (E:\ideaProject\demo\target\classes started by baifj in E:\ideaProject\demo)
+2021-02-26 10:02:28.560 INFO  [main] com.baixs.demo.DemoApplication                     [ 655] - The following profiles are active: dev
+2021-02-26 10:04:07.812 INFO  [main] com.baixs.demo.DemoApplication                     [  55] - Starting DemoApplication on matebook with PID 9688 (E:\ideaProject\demo\target\classes started by baifj in E:\ideaProject\demo)
+2021-02-26 10:04:07.815 INFO  [main] com.baixs.demo.DemoApplication                     [ 655] - The following profiles are active: dev
+2021-02-26 10:07:21.955 INFO  [main] com.baixs.demo.DemoApplication                     [  55] - Starting DemoApplication on matebook with PID 2856 (E:\ideaProject\demo\target\classes started by baifj in E:\ideaProject\demo)
+2021-02-26 10:07:21.956 INFO  [main] com.baixs.demo.DemoApplication                     [ 655] - The following profiles are active: dev
+2021-02-26 10:07:50.685 INFO  [main] com.baixs.demo.DemoApplication                     [  55] - Starting DemoApplication on matebook with PID 5072 (E:\ideaProject\demo\target\classes started by baifj in E:\ideaProject\demo)
+2021-02-26 10:07:50.686 INFO  [main] com.baixs.demo.DemoApplication                     [ 655] - The following profiles are active: dev
+2021-02-26 10:09:06.116 INFO  [main] com.baixs.demo.DemoApplication                     [  55] - Starting DemoApplication on matebook with PID 6076 (E:\ideaProject\demo\target\classes started by baifj in E:\ideaProject\demo)
+2021-02-26 10:09:06.118 INFO  [main] com.baixs.demo.DemoApplication                     [ 655] - The following profiles are active: dev
