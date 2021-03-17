@@ -12,9 +12,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class NIOServer {
-    private int port;
+    private final int port;
     private Selector selector;
-    private ExecutorService service = Executors.newFixedThreadPool(5);
+    private final ExecutorService service = Executors.newFixedThreadPool(5);
 
     public NIOServer(int port) {
         this.port = port;
@@ -75,7 +75,7 @@ public class NIOServer {
 
     public static class NioServerHandler implements Runnable {
 
-        private SelectionKey selectionKey;
+        private final SelectionKey selectionKey;
 
         public NioServerHandler(SelectionKey selectionKey) {
             this.selectionKey = selectionKey;
@@ -89,7 +89,7 @@ public class NIOServer {
                     ByteBuffer buffer = ByteBuffer.allocate(4096);
                     socketChannel.read(buffer);
                     buffer.flip();
-                    System.out.println("收到客户端" + socketChannel.socket().getRemoteSocketAddress().toString().substring(1)+ "的数据：" + new String(buffer.array()));
+                    System.out.println("收到客户端" + socketChannel.socket().getRemoteSocketAddress().toString().substring(1) + "的数据：" + new String(buffer.array()));
                     ByteBuffer outBuffer = ByteBuffer.wrap(buffer.array());
                     socketChannel.write(outBuffer);
                     selectionKey.cancel();

@@ -1,10 +1,9 @@
 package com.baixs.demo.io.netty;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+
+import java.io.IOException;
 
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     @Override
@@ -18,6 +17,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
                 System.out.flush();
             }*/
             ctx.writeAndFlush(msg);
+            throw new IOException("故意抛出的异常");
         } finally {
             // ReferenceCountUtil.release(msg);
         }
@@ -27,6 +27,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         // Close the connection when an exception is raised.
         cause.printStackTrace();
+        //ctx.writeAndFlush("throw a exception!");
         ctx.close();
     }
 

@@ -1,12 +1,10 @@
 package com.baixs.demo.job;
 
-import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
 public class SampleJob extends QuartzJobBean {
-    //private Myservice myservice;
     private String name;
 
     public String getName() {

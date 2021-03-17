@@ -76,6 +76,9 @@ spring:
             class: org.quartz.simpl.SimpleThreadPool
             threadCount: 5
             threadPriority: 2
+  elasticsearch:
+    rest:
+      uris: http://192.168.0.110:9200
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*Mapper.xml

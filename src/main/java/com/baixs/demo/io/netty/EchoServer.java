@@ -1,7 +1,6 @@
 package com.baixs.demo.io.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
-
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -11,10 +10,18 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class EchoServer {
-    private int port;
+    private final int port;
 
     public EchoServer(int port) {
         this.port = port;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int port = 8080;
+        if (args.length > 0) {
+            port = Integer.parseInt(args[0]);
+        }
+        new EchoServer(port).run();
     }
 
     public void run() throws Exception {
@@ -44,13 +51,5 @@ public class EchoServer {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        int port = 8080;
-        if (args.length > 0) {
-            port = Integer.parseInt(args[0]);
-        }
-        new EchoServer(port).run();
     }
 }

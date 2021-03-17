@@ -8,7 +8,7 @@ import io.netty.util.AsciiString;
 
 public class HttpHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 
-    private AsciiString contentType = HttpHeaderValues.TEXT_PLAIN;
+    private final AsciiString contentType = HttpHeaderValues.TEXT_PLAIN;
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest msg) {
@@ -33,7 +33,7 @@ public class HttpHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         System.out.println("exceptionCaught");
-        if(null != cause) cause.printStackTrace();
-        if(null != ctx) ctx.close();
+        if (null != cause) cause.printStackTrace();
+        if (null != ctx) ctx.close();
     }
 }

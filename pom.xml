@@ -17,6 +17,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <elasticsearch>7.11.1</elasticsearch>
     </properties>
 
     <dependencies>
@@ -148,6 +149,11 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.59.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
 
     </dependencies>
