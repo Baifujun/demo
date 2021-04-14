@@ -13,8 +13,8 @@ import java.util.concurrent.Executors;
 
 public class NIOServer {
     private final int port;
-    private Selector selector;
     private final ExecutorService service = Executors.newFixedThreadPool(5);
+    private Selector selector;
 
     public NIOServer(int port) {
         this.port = port;

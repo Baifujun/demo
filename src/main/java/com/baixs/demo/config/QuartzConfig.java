@@ -30,7 +30,7 @@ public class QuartzConfig {
     public Trigger trigger() {
         ScheduleBuilder scheduleBuilder = SimpleScheduleBuilder
                 .simpleSchedule()
-                .withIntervalInSeconds(3) // 定时任务间隔时间
+                .withIntervalInSeconds(10) // 定时任务间隔时间
                 .repeatForever(); // 触发器无限循环触发
         return TriggerBuilder.newTrigger()
                 .forJob(jobDetail())
