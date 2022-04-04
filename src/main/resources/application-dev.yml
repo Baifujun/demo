@@ -106,3 +106,5 @@ mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*Mapper.xml
   type-aliases-package: com.baixs.demo.domain
+  configuration:
+    map-underscore-to-camel-case: true
